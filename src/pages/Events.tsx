@@ -3,6 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, MapPin, Clock, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Import images
+import eventsAcademic from '@/assets/events-academic.jpg';
+import eventsCultural from '@/assets/events-cultural.jpg';
+import eventsSports from '@/assets/events-sports.jpg';
+import pastEvents from '@/assets/past-events.jpg';
+
 const Events = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   
@@ -49,19 +55,19 @@ const Events = () => {
       title: 'शैक्षिक घटनाहरू',
       description: 'शैक्षिक गतिविधि, सेमिनार र कार्यशालाहरू',
       events: ['विज्ञान मेला - मे २०', 'गणित ओलम्पियाड - जुन ५', 'वर्तनी प्रतियोगिता - जुन १५'],
-      color: 'bg-blue-500'
+      image: eventsAcademic
     },
     {
       title: 'सांस्कृतिक घटनाहरू',
       description: 'कला, संगीत, नृत्य र सांस्कृतिक उत्सवहरू',
       events: ['वार्षिक सांस्कृतिक कार्यक्रम - मे १९', 'संगीत प्रतियोगिता - जुन ८', 'कलाकृति प्रदर्शनी - जुलाई १०'],
-      color: 'bg-purple-500'
+      image: eventsCultural
     },
     {
       title: 'खेलकुद घटनाहरू',
       description: 'खेलकुद प्रतियोगिता, अन्तर-विद्यालय खेल र शारीरिक गतिविधिहरू',
       events: ['वार्षिक खेलकुद दिवस - मे २२', 'फुटबल प्रतियोगिता - जुन ४', 'तैराकी प्रतियोगिता - जुलाई ७'],
-      color: 'bg-green-500'
+      image: eventsSports
     }
   ];
 
@@ -258,7 +264,10 @@ const Events = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {eventCategories.map((category, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
-                <div className={`h-48 ${category.color} relative`}>
+                <div 
+                  className="h-48 bg-cover bg-center bg-no-repeat relative"
+                  style={{ backgroundImage: `url(${category.image})` }}
+                >
                   <div className="absolute inset-0 bg-black/20"></div>
                 </div>
                 <CardContent className="p-6">
@@ -293,7 +302,10 @@ const Events = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pastEvents.map((event, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-school-primary to-school-primary-light"></div>
+                <div 
+                  className="h-48 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url(${pastEvents})` }}
+                ></div>
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-school-primary mb-1">{event.title}</h3>
                   <p className="text-sm text-gray-600 mb-2">{event.date}</p>

@@ -3,6 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, Target, Award, BookOpen, Heart, Star } from 'lucide-react';
 
+// Import images
+import aboutHistory from '@/assets/about-history.jpg';
+import principalPhoto from '@/assets/principal-photo.jpg';
+import chairmanPhoto from '@/assets/chairman-photo.jpg';
+import teachersGroup from '@/assets/teachers-group.jpg';
+
 const About = () => {
   const values = [
     {
@@ -89,7 +95,10 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="h-96 bg-gradient-to-br from-school-primary to-school-primary-light rounded-lg"></div>
+            <div 
+              className="h-96 bg-cover bg-center bg-no-repeat rounded-lg"
+              style={{ backgroundImage: `url(${aboutHistory})` }}
+            ></div>
           </div>
         </div>
       </section>
@@ -128,7 +137,10 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="p-6">
               <CardContent className="flex space-x-4">
-                <div className="w-24 h-24 bg-gradient-to-br from-school-primary to-school-primary-light rounded-full flex-shrink-0"></div>
+                <div 
+                  className="w-24 h-24 bg-cover bg-center bg-no-repeat rounded-full flex-shrink-0"
+                  style={{ backgroundImage: `url(${principalPhoto})` }}
+                ></div>
                 <div>
                   <h3 className="text-xl font-semibold text-school-primary mb-2">प्राचार्यको सन्देश</h3>
                   <p className="text-gray-600 mb-4">
@@ -142,7 +154,10 @@ const About = () => {
             </Card>
             <Card className="p-6">
               <CardContent className="flex space-x-4">
-                <div className="w-24 h-24 bg-gradient-to-br from-school-primary to-school-primary-light rounded-full flex-shrink-0"></div>
+                <div 
+                  className="w-24 h-24 bg-cover bg-center bg-no-repeat rounded-full flex-shrink-0"
+                  style={{ backgroundImage: `url(${chairmanPhoto})` }}
+                ></div>
                 <div>
                   <h3 className="text-xl font-semibold text-school-primary mb-2">अध्यक्षको सन्देश</h3>
                   <p className="text-gray-600 mb-4">
@@ -174,7 +189,10 @@ const About = () => {
             ].map((teacher, index) => (
               <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow">
                 <CardContent className="space-y-3">
-                  <div className="w-20 h-20 bg-gradient-to-br from-school-primary to-school-primary-light rounded-full mx-auto"></div>
+                  <div 
+                    className="w-20 h-20 bg-cover bg-center bg-no-repeat rounded-full mx-auto"
+                    style={{ backgroundImage: `url(${teachersGroup})` }}
+                  ></div>
                   <h3 className="font-semibold text-school-primary">{teacher.name}</h3>
                   <p className="text-sm text-gray-600">{teacher.subject}</p>
                   <p className="text-xs text-gray-500">{teacher.experience}</p>

@@ -15,6 +15,13 @@ import {
   Heart
 } from 'lucide-react';
 
+// Import images
+import heroBackground from '@/assets/hero-background.jpg';
+import galleryAwards from '@/assets/gallery-awards.jpg';
+import galleryPerformance from '@/assets/gallery-performance.jpg';
+import galleryRobotics from '@/assets/gallery-robotics.jpg';
+import galleryMuseum from '@/assets/gallery-museum.jpg';
+
 const Home = () => {
   const quickAccessCards = [
     {
@@ -95,17 +102,21 @@ const Home = () => {
   ];
 
   const galleryImages = [
-    { title: 'शैक्षिक पुरस्कार', subtitle: 'मे २५, २०२३' },
-    { title: 'गायन प्रदर्शन', subtitle: 'अप्रिल १५, २०२३' },
-    { title: 'रोबोटिक्स प्रतियोगिता', subtitle: 'मार्च १०, २०२३' },
-    { title: 'संग्रहालय भ्रमण', subtitle: 'फेब्रुअरी २५, २०२३' }
+    { title: 'शैक्षिक पुरस्कार', subtitle: 'मे २५, २०२३', image: galleryAwards },
+    { title: 'गायन प्रदर्शन', subtitle: 'अप्रिल १५, २०२३', image: galleryPerformance },
+    { title: 'रोबोटिक्स प्रतियोगिता', subtitle: 'मार्च १०, २०२३', image: galleryRobotics },
+    { title: 'संग्रहालय भ्रमण', subtitle: 'फेब्रुअरी २५, २०२३', image: galleryMuseum }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-school-primary via-school-primary-light to-school-navy"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-school-primary/80 via-school-primary-light/70 to-school-navy/80"></div>
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -240,7 +251,10 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {galleryImages.map((image, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-school-primary to-school-primary-light"></div>
+                <div 
+                  className="h-48 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url(${image.image})` }}
+                ></div>
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-school-primary mb-1">{image.title}</h3>
                   <p className="text-sm text-gray-600">{image.subtitle}</p>
